@@ -235,9 +235,9 @@
         </div>
 
         <div class="menu">
-            <button class="active" onclick="switchTab('referEarnTab', 'Refer & Earn ')">Refer & Earn</button>
-            <button onclick="switchTab('walletTab', 'Wallet ')">Wallet</button>
-            <button onclick="switchTab('accountSettingsTab', 'Account Settings')">Account Settings</button>
+            <button class="active" onclick="switchTab('referEarnTab', 'Refer & Earn ', event)">Refer & Earn</button>
+            <button onclick="switchTab('walletTab', 'Wallet ', event)">Wallet</button>
+            <button onclick="switchTab('accountSettingsTab', 'Account Settings', event)">Account Settings</button>
         </div>
     </div>
 
@@ -422,6 +422,7 @@ const isUserEnrolled = await contract.methods.isEnrolled(userAddress).call();
             // Display result
             if (isUserEnrolled) {
                 console.log('You are enrolled!');
+		document.getElementById('t1').style.display = 'none'; //Hide Airdrop Table
             } else {
                 console.log('You are NOT enrolled.');
             }
