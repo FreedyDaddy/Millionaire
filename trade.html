@@ -617,27 +617,26 @@ async function checkEnrollmentStatus(address) {
     try {
         const enrolledStatus = await contract.methods.isEnrolled(address).call();
 
-	    
         if (enrolledStatus) {
             console.log(`${address} is enrolled.`);
-		document.querySelectorAll('.trade-enroll').forEach(el => {
-    el.innerText = "You are Whitelisted for Pre Trading";
-});
-            //alert(`${address} is enrolled.`);
+            
+            document.querySelectorAll('.trade-enroll').forEach(el => {
+                el.innerText = "You are Whitelisted for Pre Trading";
+            });
+
         } else {
             console.log(`${address} is not enrolled.`);
-	
-		document.querySelectorAll('.trade-enroll').forEach(el => {
-    el.innerText = "You are Not Whitelisted for Pre Trading. Enroll for Airdrop to be Eligible.";
-            //alert(`${address} is not enrolled.`);
+            
+            document.querySelectorAll('.trade-enroll').forEach(el => {
+                el.innerText = "You are Not Whitelisted for Pre Trading. Enroll for Airdrop to be Eligible.";
+            });  // **Missing parenthesis added here**
         }
+
     } catch (error) {
         console.error('Error checking enrollment status:', error);
         alert('Error checking enrollment status. Check the console for details.');
     }
 }
-
-
 
     </script>
 </body>
