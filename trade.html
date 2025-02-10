@@ -530,29 +530,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 async function LoadDetails() {
-    try {
-        console.log(1);
-        
+    try {        
         if (typeof contract === "undefined") {
             console.error("Error: Contract is not initialized.");
             return;
         }
 
         const tokenPriceWei = await contract.methods.calculateTokenPrice().call();
-        console.log(2);
-
+        
         const tokenPriceInEther = web3.utils.fromWei(tokenPriceWei, 'ether');
         tokenBNBPrice = tokenPriceInEther;
-        console.log(3);
-
+        
         // Fetch BNB price from CoinGecko API
         const bnbPriceInUSD = await fetchBNBPrice();
-        console.log(4);
-
+        
         // Calculate equivalent USD values
         const tokenPriceInUSD = (bnbPriceInUSD * tokenPriceInEther).toFixed(2);
         tokenPrice = tokenPriceInUSD;
-        console.log(5);
 
         // Update UI
         document.getElementById('token-price').innerText = `≈ $ ${tokenPriceInUSD}`;
