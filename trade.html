@@ -620,11 +620,15 @@ async function checkEnrollmentStatus(address) {
 	    
         if (enrolledStatus) {
             console.log(`${address} is enrolled.`);
-	document.getElementByClassName('trade-enroll').innerText = "You are Whitelisted for Pre Trading";
+		document.querySelectorAll('.trade-enroll').forEach(el => {
+    el.innerText = "You are Whitelisted for Pre Trading";
+});
             //alert(`${address} is enrolled.`);
         } else {
             console.log(`${address} is not enrolled.`);
-	document.getElementByClassName('trade-enroll').innerText = "You are Not Whitelisted for Pre Trading. Enroll for Airdrop to be Eligible.";
+	
+		document.querySelectorAll('.trade-enroll').forEach(el => {
+    el.innerText = "You are Not Whitelisted for Pre Trading. Enroll for Airdrop to be Eligible.";
             //alert(`${address} is not enrolled.`);
         }
     } catch (error) {
