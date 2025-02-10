@@ -614,12 +614,15 @@ async function checkEnrollmentStatus(address) {
     try {
         const enrolledStatus = await contract.methods.isEnrolled(address).call();
 
+	    
         if (enrolledStatus) {
             console.log(`${address} is enrolled.`);
-            alert(`${address} is enrolled.`);
+	document.getElementById('trade-enroll').innerText = "You are Whitelisted for Pre Trading";
+            //alert(`${address} is enrolled.`);
         } else {
             console.log(`${address} is not enrolled.`);
-            alert(`${address} is not enrolled.`);
+	document.getElementById('trade-enroll').innerText = "You are Not Whitelisted for Pre Trading. Enroll for Airdrop to be Eligible.";
+            //alert(`${address} is not enrolled.`);
         }
     } catch (error) {
         console.error('Error checking enrollment status:', error);
