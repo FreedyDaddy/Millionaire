@@ -1,0 +1,77 @@
+    /* Navbar Styles */
+    .navbar {
+        background-color: #000;
+    }
+
+    .navbar-brand img {
+        height: 40px;
+        border-radius: 10%; /* Make logo round */
+        margin-right: 10px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff !important;
+    }
+
+    .nav-item {
+        padding: 10px 15px;
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    }
+
+    .nav-link {
+        color: #fff !important;
+        font-weight: bold; /* Bold text */
+    }
+
+    /* Hover effect on nav-item */
+    .nav-item:hover {
+        background-color: #d31758; /* Background color on hover */
+    }
+
+    .nav-item:hover .nav-link {
+        color: black; /* Change text color when nav-item is hovered */
+    }
+
+    /* Button Styles */
+    .btn-connect {
+        background-color: #ff1493;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-connect:hover {
+        background-color: #ff69b4;
+    }
+
+    .btn-group {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 1.4rem;
+        margin: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+    }
+
+        .btn-connect {
+        padding: 12px 24px;
+        font-size: 1.4rem;
+        margin: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+
+            background-color: #ff1493;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-connect:hover {
+            background-color: #ff69b4;
+        }

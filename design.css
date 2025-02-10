@@ -1,0 +1,299 @@
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('BG.png') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Ensures background stays fixed when scrolling */
+        }
+
+
+        .claim-button, .name-btn {
+            padding: 10px 20px;
+            background-color: #F50870FF;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size:90%;
+        }
+
+	#t1
+	{
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	    margin-left:auto;
+	    margin-right:auto;
+            background-color: #333;
+            width: 600px;
+            height: 100px;
+            color: #fff;
+            text-align: center;
+            border-radius: 20px;
+   	    font-weight:bold;
+	}
+
+	#t3
+	{
+		padding:10px;
+		margin-left:auto;
+		margin-right:auto;
+		background-color: #333;
+		width: 600px;
+		height: 150px;
+		color: #fff;
+		text-align: center;
+		border-radius: 20px;
+		font-weight:bold;
+	}
+
+#t4{
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	    margin-left:auto;
+	    margin-right:auto;
+            background-color: #333;
+            width: 600px;
+            height: 100px;
+            color: #fff;
+            text-align: center;
+            border-radius: 20px;
+   	    font-weight:bold;
+}
+
+	#activeDot {
+		width: 15px;
+		height: 15px;
+		background-color: red;
+		border-radius: 50%;
+		float: left;
+	}
+
+	#referCode
+	{
+		width: 80%;
+		height: 30%;
+		border-radius: 10px;
+		padding:10px;
+	}
+
+	#copyButton {
+		padding: 5px 10px;
+		cursor: pointer;
+		background-color: #3498db;
+		color: white;
+		border: none;
+		border-radius: 10px;
+		height: 35px;
+	}
+
+
+
+/* Left Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #000;
+    color: white;
+    position: fixed;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar .profile h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar .profile p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.sidebar .profile .wallet-address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.sidebar .profile .wallet-address i {
+    cursor: pointer;
+    color: #fff;
+}
+
+.sidebar .menu {
+    margin-top: 20px;
+}
+
+.sidebar .menu button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+.sidebar .menu button.active,
+.sidebar .menu button:hover {
+    background-color: #444;
+}
+
+/* Main Content Styles */
+.content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+#enroll-div {
+    text-align: center; /* Center-align text */
+}
+
+/* Common Section Styles */
+.tab-section {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    text-align: center; /* Center-align text */
+}
+
+/* Wallet Section Styles */
+.wallet-container {
+    display: flex;
+    gap: 15px;
+}
+
+.wallet-item {
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wallet-item h5 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.wallet-item img {
+    height: 30px;
+}
+
+/* Account Settings Styles */
+.account-settings {
+    text-align: left;
+}
+
+.account-settings h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+table td {
+    text-align: center; /* Center-align all table cell content */
+    padding: 10px;
+}
+
+table td span {
+    display: block; /* Makes the status span show in a new line */
+}
+
+/* Specific Table Styles */
+#w1 {
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #333;
+    width: 100%; /* Make it responsive to screen width */
+    max-width: 600px; /* Set a max width for larger screens */
+    height: auto; /* Allow height to adjust based on content */
+    color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 15px; /* Add some padding for mobile */
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 850px) {
+    #t1 {
+        max-width: 92%;
+        font-size: 13px;
+    }
+
+    #td1-1, #td1-2 {
+        width: 90px;
+    }
+
+    #t3 {
+        width: 80%;
+    }
+    #w1 {
+        width: 90%; /* Make it slightly smaller on mobile */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+#t4{
+        width: 90%; /* Make it slightly smaller on mobile */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+
+}
+
