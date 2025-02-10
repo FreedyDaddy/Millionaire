@@ -597,8 +597,36 @@ document.getElementById('buySwapBtn').addEventListener('click', async () => {
 
 
 document.getElementById('sellSwapBtn').addEventListener('click', async () => {
-    console.log("p2");
+    // Get the amount of tokens to sell
+    const freedyAmount = parseFloat(document.getElementById('sellAmount').value);
+
+    // Validate the amount
+    if (isNaN(freedyAmount) || freedyAmount <= 0) {
+        alert('Please enter a valid amount in Freedy Amount');
+        return;
+    }
+
+    // Convert the token amount to the correct format (assuming 18 decimals)
+    const freedyAmountInWei = web3.utils.toWei(freedyAmount.toString(), "ether");
+
+    try {
+        // Get user address (from the connected wallet)
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        const walletAddress = accounts[0];
+
+        // Call the sell function on the contract
+        const tx = await contract.methods.sell(freedyAmountInWei).send({ from: walletAddress });
+        console.log("Transaction sent: ", tx);
+
+        // Optionally, wait for the transaction to be mined
+        const receipt = await tx.wait();
+        console.log("Transaction confirmed: ", receipt);
+
+    } catch (error) {
+        console.error("Error calling contract function: ", error);
+    }
 });
+
 
 
 async function checkEnrollmentStatus(address) {
