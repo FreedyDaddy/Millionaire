@@ -581,7 +581,7 @@ document.getElementById('buySwapBtn').addEventListener('click', async () => {
 
     try {
         // Call the buy function
-        const tx = await contract.methods.buy().send({ from: userAddress, value: weiAmount });
+        const tx = await contract.methods.buy().send({ from: walletAddress, value: weiAmount });
         console.log("Transaction sent: ", tx);
 
         // Optionally, wait for the transaction to be mined
