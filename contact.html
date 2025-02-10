@@ -263,11 +263,9 @@ window.onload = function () {
         connectWalletBtn.addEventListener("click", async () => {
             if (typeof ethereum !== "undefined") {
                 try {
-                document.getElementById('connect-wallet').style.display = 'none';
                     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                     if (accounts.length > 0) {
                         walletAddressInput.value = accounts[0];
-
                 document.getElementById('disconnect-wallet').style.display = 'inline';
                 document.getElementById('connect-wallet').style.display = 'none';
                     }
