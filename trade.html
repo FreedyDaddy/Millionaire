@@ -525,7 +525,10 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
 	   // updateLog("Wallet Not Found", `❌ Home: ${error.message}`);
     }
 });
+document.addEventListener("DOMContentLoaded", function() {
+	LoadDetails();
 
+});
 async function LoadDetails() {
     try {
         console.log(1);
