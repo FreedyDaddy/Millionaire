@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        #trade-enroll {
+        .trade-enroll {
             font-style: italic;
             color: #ff69b4;
             margin-top: 20px;
@@ -359,7 +359,7 @@
                 </div>
                 <button class="swap-btn" id="buySwapBtn"><b>Swap</b></button>
 		    <br><br>
-		    <span id="trade-enroll"></span>
+		    <span class="trade-enroll"></span>
             </div>
 
             <!-- Sell Container -->
@@ -385,7 +385,7 @@
                 <button class="swap-btn" id="sellSwapBtn"><b>Swap</b></button>
 
 		    <br><br>
-		    <span id="trade-enroll"></span>
+		    <span class="trade-enroll"></span>
             </div>
         </div>
     </div>
@@ -620,11 +620,11 @@ async function checkEnrollmentStatus(address) {
 	    
         if (enrolledStatus) {
             console.log(`${address} is enrolled.`);
-	document.getElementById('trade-enroll').innerText = "You are Whitelisted for Pre Trading";
+	document.getElementByClassName('trade-enroll').innerText = "You are Whitelisted for Pre Trading";
             //alert(`${address} is enrolled.`);
         } else {
             console.log(`${address} is not enrolled.`);
-	document.getElementById('trade-enroll').innerText = "You are Not Whitelisted for Pre Trading. Enroll for Airdrop to be Eligible.";
+	document.getElementByClassName('trade-enroll').innerText = "You are Not Whitelisted for Pre Trading. Enroll for Airdrop to be Eligible.";
             //alert(`${address} is not enrolled.`);
         }
     } catch (error) {
