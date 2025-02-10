@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airdrop Claim</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="Logo.png" type="image/png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('BG.png') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Ensures background stays fixed when scrolling */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #000;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            border-radius: 10%; /* Make logo round */
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: bold; /* Bold text */
+            margin: 0 10px;
+        }
+
+        .btn-connect {
+            background-color: #ff1493;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-connect:hover {
+            background-color: #ff69b4;
+        }
+
+
+    .center-table-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .center-table {
+        border-radius: 15px;
+        border: 1px solid #ddd;
+        width: 80%;
+        max-width: 1200px; /* Maximum width for large screens */
+        overflow: hidden;
+        background-color: #f4f4f4;
+        margin: auto;
+    }
+
+    .banner {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: #f4f4f4;
+    }
+
+    .banner-img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .airdrop {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .airdrop-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .airdrop-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 10%;
+        margin-right: 10px;
+    }
+
+.airdrop,
+.features {
+    width: 50%;
+    box-sizing: border-box; /* Ensure padding doesn’t affect the width */
+}
+
+    /* NEW RULE TO CENTER THE AIRDROP TABLE */
+    .airdrop-table {
+        margin: 0 auto;
+    }
+
+#airdrop-amount {
+    font-size: 24px; /* Increases the font size */
+    font-weight: bold; /* Makes the text bold */
+}
+
+
+    .airdrop-table td {
+        padding: 8px;
+        vertical-align: top;
+        text-align: center;
+    }
+
+    .refer-code-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    #refer-code-text {
+        cursor: pointer;
+        font-size: 18px;
+        color: #007bff;
+    }
+
+    #refer-code-input {
+        display: none;
+        margin-top: 10px;
+        padding: 5px;
+        font-size: 16px;
+        width: 200px;
+        text-align: center;
+    }
+
+    #apply-btn {
+        display: none;
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+#refer-code-input:disabled {
+    background-color: #f0f0f0; /* Light gray background for disabled input */
+    cursor: not-allowed; /* Change cursor to indicate it's not editable */
+}
+
+#apply-btn:disabled {
+    background-color: #ccc; /* Gray background for the disabled button */
+    cursor: not-allowed; /* Change cursor to indicate the button is disabled */
+}
+
+    .claim-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .features {
+        padding: 20px;
+        text-align: left;
+    }
+
+    .features-table td {
+        padding: 8px;
+        width: 80%;
+    }
+
+    .features-table button {
+        background-color: #008CBA;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .features-table button:hover {
+        background-color: #006F8E;
+    }
+
+        #note {
+            font-style: italic;
+            color: black;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+    @media (max-width: 768px) {
+        /* Make table content stack vertically on smaller screens */
+        .center-table {
+            width: 90%; /* Slightly reduced width on mobile */
+        }
+
+        .airdrop-header {
+            flex-direction: column;
+        }
+
+        .airdrop-logo {
+            margin-bottom: 10px;
+        }
+
+        .refer-code-container {
+            flex-direction: column;
+        }
+
+        .features-table button {
+            width: 100%;
+        }
+
+        .claim-btn {
+            width: 100%;
+        }
+    }
+
+
+/* Footer Styles */
+.footer {
+    background-color: #000;
+    padding: 20px 40px;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* For responsiveness */
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.footer-logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.footer-right {
+    display: flex; /* Align items in a row */
+    gap: 20px; /* Space between links */
+    align-items: center; /* Optional: to center the links vertically */
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+  </style>
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="Logo.png" alt="Logo"> Freedy Daddy
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="refer.html">Refer & Earn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="working.html">Earn Millions $</a></li>
+                </ul>
+                <button class="btn btn-connect" id="connect-wallet">Connect Wallet</button>
+                <button class="btn btn-connect" id="disconnect-wallet" style="display: none;"><b>Disconnect Wallet</b></button>
+            </div>
+        </div>
+    </nav>
+
+<br><br>
+
+
+  <div class="center-table-container">
+      <table class="center-table">
+          <tr>
+              <td colspan="2" class="banner">
+                  <img src="banner.png" alt="Banner" class="banner-img">
+              </td>
+          </tr>
+          <tr>
+              <td class="airdrop">
+                  <table class="airdrop-table">
+                      <tr>
+                          <td colspan="2" class="airdrop-header">
+                              <img src="Logo.png" alt="Logo" class="airdrop-logo">
+                              <span id="airdrop-amount"><span id="claim-amount">50</span> Freedy</span>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td colspan="2" class="refer-code-container">
+                              <span id="refer-code-text" onclick="editReferralCode()">Have a Refer Code?</span>
+                              <input id="refer-code-input" style="display:none;" type="text" placeholder="Enter Refer Code" />
+                              <button id="apply-btn" style="display:none;" onclick="applyReferralCode()">Apply</button>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td colspan="2">
+                              <button class="claim-btn" onclick="claimAirdrop()">Claim Airdrop</button>
+                          </td>
+                      </tr>
+                  </table>
+              </td>
+              <td class="features">
+                  <table class="features-table">
+                      <tr>
+                          <td><strong>Additional Benefits  <sub>( If Claim Airdrop )</sub> :-</strong></td>
+                      </tr>
+                      <tr>
+                          <td><b>1.</b> Eligible for <b>Refer & Earn</b> & earn BNB directly into your Linked Wallet.</td>
+                      </tr>
+                      <tr>
+                          <td><b>2.</b> <b>Pre-Trading </b>of Tokens Available to you, i.e, <b>Instant Buy / Sell</b>.</td>
+                      </tr>
+                      <tr>
+                          <td><strong>Project Objective :-</strong></td>
+                      </tr>
+                      <tr>
+                          <td><b>1.</b> Want to <b>make everyone in Community Millionaire</b>. Everyone Includes you too if you Claim Airdrop. Also can tap on Working Button to know how to achieve it.</td>
+                      </tr>
+                      <tr>
+                          <td><button onclick="workingBtn()">Working ?</button></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+<tr>
+    <td colspan="2">
+        <div style="width: 70%; margin: 0 auto; text-align: center; margin-bottom: 20px;" id="note">
+            Till now, you’ve invested in many cryptocurrencies. How many times have you lost? If you took the risk of losing money back then, why not take one more blind risk? Maybe this bet could recover your other losses !!!
+        </div>
+    </td>
+</tr>
+
+      </table>
+  </div>
+
+<br><br>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <div class="footer-logo">
+                <img src="Logo.png" alt="Logo" class="footer-logo-img">
+            </div>
+            <div class="token-price">
+                Price <span id="token-price"> ≈ $...</span> &nbsp;
+                <img src="bnb.png" alt="BNB" class="footer-logo-img footer-bnb-img">
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+
+            <button id="Metamask-Add">Add to Metamask</button>
+
+            <div class="footer-divider"></div>
+            <a href="#docs" class="footer-link">Tokenomics</a>
+
+            <div class="footer-divider"></div>
+            <a href="/" class="footer-link">Press Kit</a>
+
+
+            <div class="footer-divider"></div>
+            <a href="contact.html" class="footer-link">Contact</a>
+
+        </div>
+    </div>
+</footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.min.js"></script>
+<script src="walletconnect.js"></script>
+
+<script>
+// Declare the refercode variable
+let refercode;
+
+// Function to get the value of a query parameter from the URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Check if the ref parameter exists in the URL and store it in refercode
+refercode = getQueryParam('ref');
+
+// If the refercode exists, apply it to the page
+if (refercode) {
+    // Apply the referral code directly to the refer code text
+    document.getElementById('refer-code-text').innerText = refercode;
+    document.getElementById('refer-code-input').value = refercode; // Set the input value if needed
+    document.getElementById('apply-btn').style.display = 'none'; // Hide the apply button since the code is already applied
+    document.getElementById('refer-code-text').style.display = 'inline-block'; // Ensure the referral text is shown
+    lockReferralCode(); // Lock the input and button
+}
+
+function editReferralCode() {
+    // When the "Have a Refer Code?" text is clicked, show input and apply button
+    const referCodeText = document.getElementById('refer-code-text');
+    const referCodeInput = document.getElementById('refer-code-input');
+    const applyBtn = document.getElementById('apply-btn');
+
+    referCodeText.style.display = 'none';
+    referCodeInput.style.display = 'inline-block';
+    applyBtn.style.display = 'inline-block';
+}
+
+function applyReferralCode() {
+    const referCodeInput = document.getElementById('refer-code-input');
+    const referCodeText = document.getElementById('refer-code-text');
+    const applyBtn = document.getElementById('apply-btn');
+
+    // Update the refercode variable with the new code from input
+    refercode = referCodeInput.value;
+
+    // Set the referral code text to the input value
+    referCodeText.innerText = referCodeInput.value;
+
+    // Hide input and apply button, show the updated referral code text
+    referCodeInput.style.display = 'none';
+    applyBtn.style.display = 'none';
+    referCodeText.style.display = 'inline-block';
+    
+    lockReferralCode(); // Lock the input and button after applying the referral code
+}
+
+// Lock the input box and button to prevent further edits
+function lockReferralCode() {
+    const referCodeInput = document.getElementById('refer-code-input');
+    const applyBtn = document.getElementById('apply-btn');
+
+    // Disable the input box and hide the apply button
+    referCodeInput.disabled = true;
+    applyBtn.style.display = 'none';
+}
+
+//------------Claim Airdrop---------------
+let weiAmount;
+
+async function claimAirdrop() {
+
+	if(!walletConnected) {
+        flashNotification('Wallet not Connected', 'yellow');
+	return;
+	}
+
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const userAddress = accounts[0];
+
+	let referaddress;
+
+	if (refercode && refercode.trim() !== "" && refercode.startsWith("0x")) {
+    console.log("Refer By: " + refercode);
+    referaddress = refercode; // Assuming refercode is already a valid Ethereum address
+	} else {
+    	referaddress = "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"; // Default Ethereum address
+	}
+
+      
+	try{
+
+		const enrollFeeWei = await contract.methods.enrollFeeBNB().call();
+		const weiAmount = web3.utils.fromWei(enrollFeeWei, 'ether');
+		const gas = 500000;
+
+		const result = await contract.methods.enroll(referaddress).send({from: userAddress,value: web3.utils.toWei(weiAmount, 'ether'), gas: gas});
+
+		//let traxHash = result.transactionHash;
+
+               // if (result.status) {
+		//updateLog(userAddress, `✅ Airdrop Claimed - `+traxHash);
+
+                 Enroll = await contract.methods.isEnrolled(userAddress).call();
+	console.log(Enroll);
+                 //document.getElementById('enroll-status').innerText = Enroll;
+		 //refreshDetails();
+	        //document.getElementById('popup-status').textContent = 'Transaction Successful';
+		//document.getElementById('popup-message').textContent = `✅ Airdrop Claimed Sucessfully`;
+		//updateLog(userAddress, `✅ Airdrop Buy`);
+		//}
+
+      } catch (error) {
+
+console.log(`❌ Error: ${error.message}`);
+	        //document.getElementById('popup-status').textContent = 'Transaction Failed';
+		//document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
+//updateLog(userAddress, `❌ Airdrop: ${error.message}`);
+      }
+}
+
+
+function workingBtn() { 
+    window.location.href = "working.html"; 
+}
+
+
+        let walletAddress;
+
+document.getElementById('connect-wallet').addEventListener('click', async () => {
+    try {
+
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        const networkId = await ethereum.request({ method: 'net_version' });
+
+        // Check if the connected network is Binance Smart Chain (Mainnet or Testnet)
+        if (networkId === '56' || networkId === '97') {
+            walletAddress = accounts[0];
+
+        walletConnected = true;
+        //document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
+        document.getElementById('disconnect-wallet').style.display = 'inline';
+        document.getElementById('connect-wallet').style.display = 'none';
+	refreshDetails();
+	//checkEnrollmentStatus(walletAddress);
+
+        } else {
+            // Display an error message if the connected network is not BSC
+     //   flashNotification('Error: Connect to Binance Smart Chain', 'red');
+
+        }
+    } catch (error) {
+        //flashNotification('Wallet Not Found', 'red');
+	   // updateLog("Wallet Not Found", `❌ Home: ${error.message}`);
+    }
+});
+
+async function refreshDetails()
+{
+	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+	const userAddress = accounts[0];
+
+	const AirdropAmount = (await contract.methods.enrollTokenAmount().call())/(10 ** 18);
+	document.getElementById('claim-amount').innerText = AirdropAmount;
+
+
+
+}
+
+
+</script>
+
+</body>
+</html>
