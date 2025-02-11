@@ -507,7 +507,7 @@ let weiAmount;
 async function claimAirdrop() {
 
 	if(!walletConnected) {
-        flashNotification('Wallet not Connected', 'yellow');
+        flashNotification('Web3 Wallet not Connected', 'yellow');
 	return;
 	}
 
@@ -549,6 +549,7 @@ async function claimAirdrop() {
       } catch (error) {
 
 console.log(`❌ Error: ${error.message}`);
+		flashNotification(`❌ Error: ${error.message}`, 'yellow');
 	        //document.getElementById('popup-status').textContent = 'Transaction Failed';
 		//document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
 //updateLog(userAddress, `❌ Airdrop: ${error.message}`);
@@ -582,12 +583,12 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
 
         } else {
             // Display an error message if the connected network is not BSC
-     //   flashNotification('Error: Connect to Binance Smart Chain', 'red');
+      flashNotification('Error: Connect to Binance Smart Chain', 'yellow');
 
         }
     } catch (error) {
-        //flashNotification('Wallet Not Found', 'red');
-	   // updateLog("Wallet Not Found", `❌ Home: ${error.message}`);
+        flashNotification('Wallet Not Found', 'yellow');
+	   // updateLog("Web3 Wallet Not Found", `❌ Home: ${error.message}`);
     }
 });
 
