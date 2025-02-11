@@ -599,9 +599,19 @@ async function refreshDetails()
 	const AirdropAmount = (await contract.methods.enrollTokenAmount().call())/(10 ** 18);
 	document.getElementById('claim-amount').innerText = AirdropAmount;
 
-
-
 }
+
+	
+//-----------Notification------------
+function flashNotification(message, color) {
+            const notification = document.getElementById('notification');
+            notification.style.backgroundColor = color;
+            notification.textContent = message;
+            setTimeout(() => {
+                notification.style.backgroundColor = 'transparent';
+                notification.textContent = '';
+            }, 3000);
+        }
 
 
 </script>
