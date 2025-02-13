@@ -340,6 +340,7 @@ The real thing in this crypto space is only Bitcoin and stablecoins. Everything 
     <script src="base.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
 <script src="walletconnect.js"></script>
+<script src="defaultData.js"></script>
 
 <script>
 
@@ -361,6 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", function() {
 	//BaseDetails();
+	LoadDefaultDetails();
 	LoadDetails();
 });
 
@@ -407,6 +409,42 @@ async function LoadDetails() {
 
 }
 
+async function LoadDefaultDetails() {
+    const tokenPriceInEther = defaultPrice;
+    const marketCapInEther = defaultImaginary + defaultCap;
+    const totalSupplyFormatted = defaultSupply;
+
+    // Fetch BNB price from CoinGecko API
+    const bnbPriceInUSD = defaultBNB;
+
+    // Calculate equivalent USD values
+    const tokenPriceInUSD = (bnbPriceInUSD * tokenPriceInEther).toFixed(2);
+    const marketCapInUSD = (bnbPriceInUSD * marketCapInEther).toFixed(2);
+
+    // Update UI
+    document.getElementById('price').innerText = tokenPriceInEther;
+    document.getElementById('price-usd').innerText = `$ ${tokenPriceInUSD}`;
+    document.getElementById('token-price').innerText = `≈ $ ${tokenPriceInUSD}`;
+
+    document.getElementById('market-cap').innerText = marketCapInEther;
+    document.getElementById('market-cap-usd').innerText = `≈ $ ${marketCapInUSD}`;
+
+    document.getElementById('supply').innerText = totalSupplyFormatted;
+
+    const target = 75000;
+
+    // Update the Bonding Curve Current Value
+    const currentValueElement = document.getElementById("current-value");
+    currentValueElement.innerText = `$${(parseFloat(marketCapInUSD)).toLocaleString()}`;
+
+    // Update Progress Bar
+    const progressBar = document.getElementById("progress-bar");
+    const progressPercentage = Math.min((marketCapInUSD / target) * 100, 100); // Cap at 100%
+    progressBar.style.width = `${progressPercentage}%`;
+
+
+}
+	
 async function fetchBNBPrice() {
     try {
         const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd');
